@@ -1,0 +1,3 @@
+{'dataset_size': 10, 'insertion_sort_comparisons': 23, 'linear_search_comparisons': 6, 'binary_search_comparisons': 4}
+{'dataset_size': 500, 'insertion_sort_comparisons': 63391, 'linear_search_comparisons': 362, 'binary_search_comparisons': 6}
+{'dataset_size': 3000, 'insertion_sort_comparisons': 2200614, 'linear_search_comparisons': 2239, 'binary_search_comparisons': 10}
