@@ -1,0 +1,577 @@
+/* =========================
+   TASKS PAGE
+========================= */
+
+.tasks-page {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 35px 20px;
+}
+
+
+/* =========================
+   TASK HEADER
+========================= */
+
+.tasks-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.tasks-header h1 {
+    margin: 0 0 6px;
+
+    font-size: 28px;
+}
+
+.tasks-header p {
+    margin: 0;
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   CREATE TASK
+========================= */
+
+.task-form-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    border: 1px solid #e5e7eb;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.04);
+}
+
+.task-form-card h2 {
+    margin-top: 0;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   TASK FORM
+========================= */
+
+.task-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.task-form-row {
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1fr;
+
+    gap: 15px;
+}
+
+.task-form textarea {
+    min-height: 90px;
+}
+
+.task-form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+
+/* =========================
+   TASK TOOLBAR
+========================= */
+
+.tasks-toolbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: white;
+
+    padding: 18px;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.task-search {
+    display: flex;
+
+    gap: 10px;
+
+    flex: 1;
+}
+
+.task-search input {
+    max-width: 400px;
+}
+
+
+/* =========================
+   SORT
+========================= */
+
+.task-sort {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.task-sort label {
+    white-space: nowrap;
+
+    font-size: 13px;
+}
+
+.task-sort select {
+    width: auto;
+}
+
+
+/* =========================
+   TASK LIST
+========================= */
+
+.tasks-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* =========================
+   TASK CARD
+========================= */
+
+.tasks-list .task-card {
+    margin: 0;
+
+    padding: 20px;
+
+    transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.tasks-list .task-card:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================
+   TASK CARD HEADER
+========================= */
+
+.task-card-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-bottom: 10px;
+}
+
+.task-card-title {
+    margin: 0;
+
+    font-size: 18px;
+
+    color: #111827;
+}
+
+
+/* =========================
+   TASK DESCRIPTION
+========================= */
+
+.task-description {
+    color: #6b7280;
+
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   TASK META
+========================= */
+
+.task-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   TASK PROJECT
+========================= */
+
+.task-project {
+    color: #6b7280;
+
+    font-size: 13px;
+
+    margin-right: 8px;
+}
+
+
+/* =========================
+   TASK DUE DATE
+========================= */
+
+.task-due-date {
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+.task-due-date.overdue {
+    color: #dc2626;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   TASK ACTIONS
+========================= */
+
+.task-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.task-actions .btn {
+    min-width: 75px;
+}
+
+
+/* =========================
+   EDIT FORM
+========================= */
+
+.edit-task-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.edit-task-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+}
+
+
+/* =========================
+   TASK STATUS SELECT
+========================= */
+
+.status-select {
+    min-width: 130px;
+}
+
+
+/* =========================
+   EMPTY TASK STATE
+========================= */
+
+.empty-tasks {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    color: #6b7280;
+}
+
+.empty-tasks h3 {
+    margin: 0 0 8px;
+
+    color: #374151;
+}
+
+
+/* =========================
+   TASK ERROR
+========================= */
+
+.task-error {
+    background: #fee2e2;
+
+    color: #991b1b;
+
+    border: 1px solid #fecaca;
+
+    padding: 12px 15px;
+
+    border-radius: 7px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   TASK SUCCESS
+========================= */
+
+.task-success {
+    background: #dcfce7;
+
+    color: #166534;
+
+    border: 1px solid #bbf7d0;
+
+    padding: 12px 15px;
+
+    border-radius: 7px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   TASK RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .task-form-row {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .tasks-toolbar {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .task-search input {
+        max-width: none;
+    }
+
+    .task-sort {
+        justify-content: space-between;
+    }
+
+    .task-sort select {
+        flex: 1;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .tasks-page {
+        padding: 20px 12px;
+    }
+
+    .tasks-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .task-form-card {
+        padding: 18px;
+    }
+
+    .task-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .task-card-header {
+        flex-direction: column;
+    }
+
+    .task-actions {
+        justify-content: stretch;
+    }
+
+    .task-actions .btn {
+        flex: 1;
+    }
+}
+
+#tasksList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.task-card h3 {
+    margin: 0 0 8px;
+}
+
+.task-card p {
+    color: #6b7280;
+    margin: 7px 0;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn.danger {
+    background: #dc2626;
+    color: white;
+}
+
+.btn.danger:hover {
+    background: #b91c1c;
+}
+
+.btn.secondary:hover {
+    background: #d1d5db;
+}
+
+@media (max-width: 480px) {
+
+    .task-actions {
+        flex-direction: column;
+    }
+
+    .task-actions .btn {
+        width: 100%;
+    }
+
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,.45);
+
+    z-index:1000;
+}
+
+.modal.hidden{
+    display:none;
+}
+
+.modal-content{
+
+    width:95%;
+    max-width:550px;
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:25px;
+}
+
+.modal-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.modal-close{
+
+    border:none;
+    background:none;
+
+    font-size:28px;
+    cursor:pointer;
+}
+
+.modal-actions{
+
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+
+    margin-top:20px;
+}

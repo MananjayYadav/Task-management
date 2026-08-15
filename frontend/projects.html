@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects - Task Manager</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/projects.css"> 
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            Task Manager
+        </div>
+
+        <nav>
+            <a href="index.html">Dashboard</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="tasks.html">Tasks</a>
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="container">
+
+        <div class="page-header">
+
+            <div>
+                <h1>Projects</h1>
+                <p>Create and manage your projects.</p>
+            </div>
+
+        </div>
+
+
+        <!-- ERROR MESSAGE -->
+        <div id="errorMessage" class="alert error hidden"></div>
+
+
+        <!-- CREATE PROJECT -->
+        <section class="card">
+
+            <h2>Create Project</h2>
+
+            <form id="projectForm">
+
+                <div class="form-group">
+
+                    <label for="projectName">
+                        Project Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="projectName"
+                        placeholder="Enter project name"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="ownerId">
+                        Owner ID
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ownerId"
+                        placeholder="Enter user ID"
+                        min="1"
+                        required
+                    >
+
+                </div>
+
+                <button type="submit" class="btn primary">
+                    + Create Project
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- PROJECT LIST -->
+        <section class="card">
+
+            <div class="section-header">
+
+                <h2>All Projects</h2>
+
+                <button
+                    id="refreshProjects"
+                    class="btn secondary"
+                >
+                    Refresh
+                </button>
+
+            </div>
+
+            <div id="projectList">
+
+                <p class="loading">
+                    Loading projects...
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+<!-- =========================
+     EDIT PROJECT MODAL
+========================= -->
+
+<div id="editProjectModal" class="modal hidden">
+
+    <div class="modal-overlay"></div>
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Edit Project</h2>
+                <p>Update your project information</p>
+            </div>
+
+            <button
+                type="button"
+                id="closeProjectModal"
+                class="modal-close"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <form id="editProjectForm">
+
+            <!-- Hidden Project ID -->
+            <input
+                type="hidden"
+                id="editProjectId"
+            >
+
+            <div class="form-group">
+
+                <label for="editProjectName">
+                    Project Name
+                </label>
+
+                <input
+                    type="text"
+                    id="editProjectName"
+                    placeholder="Enter project name"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="editOwnerId">
+                    Owner ID
+                </label>
+
+                <input
+                    type="number"
+                    id="editOwnerId"
+                    min="1"
+                    placeholder="Enter owner ID"
+                    required
+                >
+
+            </div>
+
+            <div
+                id="editProjectError"
+                class="alert error hidden"
+            ></div>
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="cancelProjectEdit"
+                    class="btn secondary"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn primary"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+    <script src="js/api.js"></script>
+    <script src="js/projects.js"></script>
+
+</body>
+
+</html>

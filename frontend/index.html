@@ -2,189 +2,443 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>TaskFlow - Dashboard</title>
 
-    <title>Task Management Dashboard</title>
-
-    <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
 <body>
 
-    <header class="header">
-        <div class="container header-content">
-            <h1>Task Management</h1>
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+    <aside class="sidebar" id="sidebar">
 
-            <nav>
-                <a href="#">Dashboard</a>
-                <a href="#">Projects</a>
-                <a href="#">Tasks</a>
-            </nav>
+        <div class="logo">
+            <span>TaskFlow</span>
         </div>
-    </header>
+
+        <nav class="navigation">
+
+            <a href="index.html" class="nav-link active">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="projects.html" class="nav-link">
+                <span class="nav-icon">▣</span>
+                <span>Projects</span>
+            </a>
+
+            <a href="tasks.html" class="nav-link">
+                <span class="nav-icon">✓</span>
+                <span>Tasks</span>
+            </a>
+
+        </nav>
+
+       
+
+    </aside>
 
 
-    <main class="container">
-
-        <section class="dashboard-header">
-            <div>
-                <h2>Dashboard</h2>
-                <p>Manage your projects and tasks.</p>
-            </div>
-        </section>
+    <!-- Mobile overlay -->
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay">
+    </div>
 
 
-        <!-- Add Task -->
+    <!-- =========================
+         MAIN WRAPPER
+    ========================== -->
+    <div class="main-wrapper">
 
-        <section class="card">
-            <h2>Add Task</h2>
-
-            <form id="task-form">
-
-                <div class="form-group">
-                    <label for="title">
-                        Task Title
-                    </label>
-
-                    <input
-                        type="text"
-                        id="title"
-                        name="title"
-                        placeholder="Enter task title"
-                    >
-                </div>
+        <!-- =========================
+             HEADER
+        ========================== -->
+        <header class="header">
 
 
-                <div class="form-group">
-                    <label for="description">
-                        Description
-                    </label>
+            <div class="header-title">
 
-                    <textarea
-                        id="description"
-                        name="description"
-                        placeholder="Enter task description"
-                    ></textarea>
-                </div>
+                <h1>
+                    Dashboard
+                </h1>
 
+                <p>
+                    Manage your tasks and projects
+                </p>
 
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label for="priority">
-                            Priority
-                        </label>
-
-                        <select id="priority" name="priority">
-                            <option value="low">Low</option>
-                            <option value="medium" selected>
-                                Medium
-                            </option>
-                            <option value="high">High</option>
-                        </select>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="status">
-                            Status
-                        </label>
-
-                        <select id="status" name="status">
-                            <option value="pending">
-                                Pending
-                            </option>
-
-                            <option value="in_progress">
-                                In Progress
-                            </option>
-
-                            <option value="completed">
-                                Completed
-                            </option>
-                        </select>
-                    </div>
-
-                </div>
-
-
-                <div class="form-group">
-                    <label for="due_date">
-                        Due Date
-                    </label>
-
-                    <input
-                        type="date"
-                        id="due_date"
-                        name="due_date"
-                    >
-                </div>
-
-
-                <button type="submit">
-                    Add Task
-                </button>
-
-            </form>
-        </section>
-
-
-        <!-- Error -->
-
-        <div
-            id="error-message"
-            class="error-message"
-            hidden
-        ></div>
-
-
-        <!-- Tasks -->
-
-        <section class="tasks-section">
-
-            <div class="section-header">
-                <h2>Tasks</h2>
             </div>
 
-            <div
-                id="task-list"
-                class="task-list"
-            >
+        </header>
 
-                <div class="task-card">
 
-                    <div class="task-card-header">
-                        <h3>Example Task</h3>
+        <!-- =========================
+             DASHBOARD CONTENT
+        ========================== -->
+        <main class="content">
 
-                        <span class="priority medium">
-                            Medium
-                        </span>
-                    </div>
+
+            <!-- Welcome -->
+            <section class="welcome-section">
+
+                <div>
+
+                    <h2>
+                        Good morning 👋
+                    </h2>
 
                     <p>
-                        This is a static task for the Day 3
-                        frontend skeleton.
+                        Here's what's happening with your tasks today.
                     </p>
 
-                    <div class="task-meta">
-                        <span>Status: Pending</span>
-                        <span>Due: 15 Aug 2026</span>
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 STATISTICS
+            ========================== -->
+            <section class="stats-grid">
+
+                <!-- Total -->
+                <article class="stat-card">
+
+                    <div class="stat-icon total">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Total Tasks
+                        </p>
+
+                        <h3 id="totalTasks">
+                            0
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Pending -->
+                <article class="stat-card">
+
+                    <div class="stat-icon pending">
+                        ◷
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Pending
+                        </p>
+
+                        <h3 id="pendingTasks">
+                            0
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+                <!-- In Progress -->
+                <article class="stat-card">
+
+                    <div class="stat-icon progress">
+                        ↻
+                    </div>
+
+                    <div>
+
+                        <p>
+                            In Progress
+                        </p>
+
+                        <h3 id="progressTasks">
+                            0
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Completed -->
+                <article class="stat-card">
+
+                    <div class="stat-icon completed">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Completed
+                        </p>
+
+                        <h3 id="completedTasks">
+                            0
+                        </h3>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =========================
+                 QUICK ADD
+            ========================== -->
+            <section class="quick-add-card">
+
+                 <div class="section-heading">
+                      <div>
+                         <h2>⚡ Quick Add</h2>
+                         <p>
+                             Create a task quickly using a simple description.
+                         </p>
+                     </div>
+                 </div>
+
+                 <form class="quick-add-form" id="quickAddForm">
+
+                     <input
+                          type="text"
+                          id="quickAddInput"
+                          placeholder="Example: urgent finish login page tomorrow"
+                          autocomplete="off"
+                    >
+                      <select id="quickAddProject" required>
+                         <option value="">
+                             Select a project
+                         </option>
+                      </select>
+
+                      <button type="submit">
+                         Add Task
+                      </button>
+
+                 </form>
+
+                 <div
+                     id="quickAddMessage"
+                     class="message"
+                     hidden
+                ></div>
+
+                 <div class="quick-add-help">
+                     <span>💡</span>
+                    <span>
+                        Try:
+                        <strong>urgent finish login page tomorrow</strong>
+                    </span>
+                 </div>
+
+            </section>
+
+
+            <!-- =========================
+                 DASHBOARD TWO COLUMNS
+            ========================== -->
+            <section class="dashboard-grid">
+
+
+                <!-- =========================
+                     RECENT TASKS
+                ========================== -->
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                Recent Tasks
+                            </h2>
+
+                            <p>
+                                Your latest tasks
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="tasks.html"
+                            class="view-link">
+
+                            View all
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- JavaScript will insert tasks here -->
+                    <div
+                        class="task-list"
+                        id="recentTasks">
+
+                        <div class="loading">
+                            Loading tasks...
+                        </div>
+
                     </div>
 
                 </div>
 
+
+                <!-- =========================
+                     PROJECTS
+                ========================== -->
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                Projects
+                            </h2>
+
+                            <p>
+                                Your active projects
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="projects.html"
+                            class="view-link">
+
+                            View all
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- JavaScript will insert projects -->
+                    <div
+                        class="project-list"
+                        id="projectList">
+
+                        <div class="loading">
+                            Loading projects...
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 ERROR MESSAGE
+            ========================== -->
+            <div
+                id="dashboardError"
+                class="error-message"
+                hidden>
             </div>
 
-        </section>
+        </main>
 
-    </main>
+    </div>
 
 
-    <script src="script.js"></script>
+    <!-- =========================
+         QUICK ADD MODAL
+    ========================== -->
+    <div
+        class="modal"
+        id="quickAddModal"
+        hidden>
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>
+                    Quick Add Task
+                </h2>
+
+                <button
+                    type="button"
+                    id="closeQuickAddModal"
+                    class="modal-close">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <form id="modalQuickAddForm">
+
+                <label for="modalQuickAddInput">
+                    Task description
+                </label>
+
+                <textarea
+                    id="modalQuickAddInput"
+                    rows="4"
+                    placeholder="Example: urgent finish dashboard tomorrow"
+                    required>
+                </textarea>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelQuickAdd"
+                        class="secondary-button">
+
+                        Cancel
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button">
+
+                        Create Task
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <!-- API functions -->
+    <script src="js/api.js"></script>
+
+    <!-- Dashboard logic -->
+    <script src="js/dashboard.js"></script>
 
 </body>
 </html>

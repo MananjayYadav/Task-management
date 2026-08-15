@@ -93,7 +93,7 @@ Open the `frontend` directory using VS Code Live Server.
 The frontend is configured to communicate with:
 
 ```text
-http://127.0.0.1:8000
+http://127.0.0.1:5500
 ```
 
 ## Database

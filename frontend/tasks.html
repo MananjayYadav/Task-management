@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Tasks - Task Manager</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tasks.css"> 
+
+</head>
+
+<body>
+
+
+<header class="header">
+
+    <div class="logo">
+        Task Manager
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            Dashboard
+        </a>
+
+        <a href="projects.html">
+            Projects
+        </a>
+
+        <a href="tasks.html" class="active">
+            Tasks
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="container">
+
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>Tasks</h1>
+
+            <p>
+                Create and manage your tasks.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ERROR -->
+
+    <div
+        id="errorMessage"
+        class="alert error hidden"
+    ></div>
+
+
+    <!-- CREATE TASK -->
+
+    <section class="card">
+
+        <h2>Create Task</h2>
+
+
+        <form id="taskForm">
+
+
+            <div class="form-group">
+
+                <label for="title">
+                    Title
+                </label>
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Enter task title"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="description">
+                    Description
+                </label>
+
+                <textarea
+                    id="description"
+                    placeholder="Enter task description"
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label for="status">
+                        Status
+                    </label>
+
+                    <select id="status">
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                        <option value="in_progress">
+                            In Progress
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="priority">
+                        Priority
+                    </label>
+
+                    <select id="priority">
+
+                        <option value="low">
+                            Low
+                        </option>
+
+                        <option value="medium" selected>
+                            Medium
+                        </option>
+
+                        <option value="high">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="dueDate">
+                        Due Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dueDate"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="projectId">
+                        Project ID
+                    </label>
+
+                    <input
+                        type="number"
+                        id="projectId"
+                        min="1"
+                        placeholder="Project ID"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn primary"
+            >
+                + Create Task
+            </button>
+
+
+        </form>
+
+    </section>
+
+
+    <!-- TASK LIST -->
+
+    <section class="card">
+
+        <div class="section-header">
+
+            <h2>All Tasks</h2>
+
+            <button
+                id="refreshTasks"
+                class="btn secondary"
+            >
+                Refresh
+            </button>
+
+        </div>
+
+
+        <div id="taskList">
+
+            <p>
+                Loading tasks...
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+<!-- ================= EDIT TASK MODAL ================= -->
+
+<div id="editTaskModal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Edit Task</h2>
+
+            <button id="closeTaskModal" class="modal-close">&times;</button>
+
+        </div>
+
+        <form id="editTaskForm">
+
+            <input type="hidden" id="editTaskId">
+
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" id="editTitle" required>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="editDescription"></textarea>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Status</label>
+
+                    <select id="editStatus">
+                        <option value="pending">Pending</option>
+                        <option value="in_progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Priority</label>
+
+                    <select id="editPriority">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Due Date</label>
+                    <input type="date" id="editDueDate">
+                </div>
+
+                <div class="form-group">
+                    <label>Project ID</label>
+                    <input type="number" id="editProjectId" required>
+                </div>
+
+            </div>
+
+            <div class="modal-actions">
+
+                <button type="button" id="cancelTaskEdit" class="btn secondary">
+                    Cancel
+                </button>
+
+                <button type="submit" class="btn primary">
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="js/api.js"></script>
+<script src="js/tasks.js"></script>
+
+</body>
+
+</html>
